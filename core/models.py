@@ -5,8 +5,8 @@ class AbstractTimestamp(models.Model):
 
     """ Abstract Timestamp Model """
 
-    created = models.DateField()
-    updated = models.DateField()
+    created = models.DateField(auto_now_add=True)
+    updated = models.DateField(auto_now=True)
 
     class Meta:
         abstract = True
