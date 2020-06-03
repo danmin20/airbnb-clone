@@ -9,4 +9,17 @@ class Conversation(core_models.AbstractTimestamp):
     participants = models.ManyToManyField("users.User", blank=True)
 
     def __str__(self):
-        return self.created
+        return str(self.created)
+
+
+class Message(core_models.AbstractTimestamp):
+
+    """ Message Model Definition """
+
+    message = models.TextField()
+    user = models.ForeignKey("users.User", on_delete=models.CASCADE)
+    Conversation = models.ForeignKey("Conversation", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.user} says: {self.message}"
+
