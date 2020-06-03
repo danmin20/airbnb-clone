@@ -1,3 +1,12 @@
 from django.db import models
+from core import models as core_models
 
-# Create your models here.
+
+class Conversation(core_models.AbstractTimestamp):
+
+    """ Conversation Model Definition """
+
+    participants = models.ManyToManyField("users.User", blank=True)
+
+    def __str__(self):
+        return self.created
