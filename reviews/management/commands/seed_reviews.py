@@ -11,7 +11,9 @@ class Command(BaseCommand):
     help = "This command creates reviews"
 
     def add_arguments(self, parser):
-        parser.add_argument("--number", default=1, type=int, help="How many reviews?")
+        parser.add_argument(
+            "--number", default=1, type=int, help="How many reviews?",
+        )
 
     def handle(self, *args, **options):
         number = options.get("number")
