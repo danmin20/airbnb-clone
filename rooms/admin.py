@@ -32,12 +32,12 @@ class RoomAdmin(admin.ModelAdmin):
             {"fields": ("name", "description", "country", "address", "price")},
         ),
         ("Times", {"fields": ("check_in", "check_out", "instant_book")}),
-        ("Spaces", {"fields": ("guests", "beds", "bedrooms", "baths")}),
+        ("Spaces", {"fields": ("guests", "beds", "bedrooms", "bathrooms")}),
         (
             "More About the Space",
             {
                 "classes": ("collapse",),
-                "fields": ("amenities", "facilities", "house_rules",),
+                "fields": ("amenities", "facilities", "rules",),
             },
         ),
         ("Last Details", {"fields": ("host",)}),
@@ -66,7 +66,7 @@ class RoomAdmin(admin.ModelAdmin):
         "room_type",
         "amenities",
         "facilities",
-        "house_rules",
+        "rules",
         "city",
         "country",
     )
@@ -79,7 +79,7 @@ class RoomAdmin(admin.ModelAdmin):
     filter_horizontal = (
         "amenities",
         "facilities",
-        "house_rules",
+        "rules",
     )
 
     def count_amenities(self, obj):
@@ -87,6 +87,8 @@ class RoomAdmin(admin.ModelAdmin):
 
     def count_photos(self, obj):
         return obj.photos.count()
+
+    count_photos.short_description = "Photo Count"
 
 
 @admin.register(models.Photo)

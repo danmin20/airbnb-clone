@@ -85,7 +85,7 @@ class Room(core_models.AbstractTimestamp):
     )
     amenities = models.ManyToManyField("Amenity", related_name="rooms", blank=True)
     facilities = models.ManyToManyField("Facility", related_name="rooms", blank=True)
-    house_rules = models.ManyToManyField("HouseRule", related_name="rooms", blank=True)
+    rules = models.ManyToManyField("HouseRule", related_name="rooms", blank=True)
 
     def __str__(self):
         return self.name
