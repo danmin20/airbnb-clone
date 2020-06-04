@@ -51,7 +51,7 @@ class RoomAdmin(admin.ModelAdmin):
         "guests",
         "beds",
         "bedrooms",
-        "baths",
+        "bathrooms",
         "check_in",
         "check_out",
         "instant_book",
