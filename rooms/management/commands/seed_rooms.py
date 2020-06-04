@@ -14,7 +14,7 @@ class Command(BaseCommand):
         parser.add_argument("--number", default=1, type=int, help="How many rooms?")
 
     def handle(self, *args, **options):
-        number = options.get("number", 1)
+        number = options.get("number")
         seeder = Seed.seeder()
         all_users = user_models.User.objects.all()
         room_types = room_models.RoomType.objects.all()

@@ -8,10 +8,10 @@ from rooms import models as room_models
 
 class Command(BaseCommand):
 
-    help = "This command creates reviews"
+    help = "This command creates rooms"
 
     def add_arguments(self, parser):
-        parser.add_argument("--number", default=1, type=int, help="How many reviews?")
+        parser.add_argument("--number", default=1, type=int, help="How many rooms?")
 
     def handle(self, *args, **options):
         number = options.get("number")
