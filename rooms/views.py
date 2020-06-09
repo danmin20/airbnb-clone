@@ -1,6 +1,4 @@
-from django.utils import timezone
-from django.views.generic import ListView
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 from . import models
 
 
@@ -13,5 +11,8 @@ class HomeView(ListView):
     context_object_name = "rooms"
 
 
-def room_detail(request, pk):
-    return render(request, "rooms/detail.html")
+class RoomDetail(DetailView):
+
+    """ RoomDetail Definition """
+
+    model = models.Room
