@@ -50,6 +50,7 @@ def complete_verification(request, key):
     try:
         user = models.User.objects.get(email_secret=key)
         user.email_verified = True
+        user.email_secret = ""
         user.save()
     except models.User.DoesNotExist:
         pass
